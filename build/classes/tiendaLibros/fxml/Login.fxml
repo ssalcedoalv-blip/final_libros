@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" spacing="20" style="-fx-background-color: #1a1a2e;"
+      xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="tiendaLibros.vista.LoginController">
+    <padding><Insets top="50" right="50" bottom="50" left="50"/></padding>
+
+    <Label text="📚 Tienda de Libros"
+           style="-fx-font-size: 30px; -fx-font-weight: bold; -fx-text-fill: #e94560;"/>
+    <Label text="Inicia sesión para continuar"
+           style="-fx-font-size: 13px; -fx-text-fill: #a8a8b3;"/>
+
+    <VBox spacing="12" maxWidth="360"
+          style="-fx-background-color: #16213e; -fx-background-radius: 14; -fx-padding: 30;">
+
+        <Label text="Usuario" style="-fx-text-fill: #e2e2e2; -fx-font-weight: bold;"/>
+        <TextField fx:id="txtUsuario" promptText="Tu nombre de usuario"
+                   style="-fx-background-color: #0f3460; -fx-text-fill: white; -fx-prompt-text-fill: #666; -fx-background-radius: 8; -fx-padding: 10;"/>
+
+        <Label text="Contraseña" style="-fx-text-fill: #e2e2e2; -fx-font-weight: bold;"/>
+        <PasswordField fx:id="txtContrasena" promptText="Tu contraseña"
+                       style="-fx-background-color: #0f3460; -fx-text-fill: white; -fx-prompt-text-fill: #666; -fx-background-radius: 8; -fx-padding: 10;"/>
+
+        <Label fx:id="lblError" text="" style="-fx-text-fill: #e94560; -fx-font-size: 12px;"/>
+
+        <Button text="INGRESAR" onAction="#handleLogin"
+                prefWidth="300" prefHeight="44"
+                style="-fx-background-color: #e94560; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 15px; -fx-background-radius: 8; -fx-cursor: hand;"/>
+
+        <Label text="admin/admin123  •  juan/juan123  •  maria/maria456"
+               style="-fx-font-size: 10px; -fx-text-fill: #555; -fx-alignment: center;"/>
+    </VBox>
+</VBox>

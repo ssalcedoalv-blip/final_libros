@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox style="-fx-background-color: #1a1a2e;"
+      xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="tiendaLibros.vista.AdminController">
+
+    <!-- HEADER -->
+    <HBox alignment="CENTER_LEFT" spacing="10"
+          style="-fx-background-color: #16213e; -fx-padding: 15;">
+        <Label text="⚙️ Panel de Administración"
+               style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #e94560;"/>
+        <Label fx:id="lblAdminNombre" style="-fx-font-size: 13px; -fx-text-fill: #a8a8b3;"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="Cerrar Sesión" onAction="#handleCerrarSesion"
+                style="-fx-background-color: #e94560; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 6;"/>
+    </HBox>
+
+    <TabPane tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS"
+             style="-fx-background-color: #1a1a2e; -fx-tab-min-width: 160;">
+
+        <!-- TAB CATALOGO -->
+        <Tab text="📋 Catálogo">
+            <HBox spacing="15" style="-fx-background-color: #1a1a2e;">
+                <padding><Insets top="15" right="15" bottom="15" left="15"/></padding>
+
+                <!-- Tabla -->
+                <TableView fx:id="tablaCatalogo" HBox.hgrow="ALWAYS"
+                           style="-fx-background-color: #16213e;">
+                    <columns>
+                        <TableColumn fx:id="colIsbn"   text="ISBN"    prefWidth="90"/>
+                        <TableColumn fx:id="colTitulo" text="Título"  prefWidth="180"/>
+                        <TableColumn fx:id="colAutor"  text="Autor"   prefWidth="140"/>
+                        <TableColumn fx:id="colGenero" text="Género"  prefWidth="100"/>
+                        <TableColumn fx:id="colPrecio" text="Precio"  prefWidth="80"/>
+                        <TableColumn fx:id="colStock"  text="Stock"   prefWidth="60"/>
+                    </columns>
+                </TableView>
+
+                <!-- Formulario -->
+                <VBox spacing="8" prefWidth="320"
+                      style="-fx-background-color: #16213e; -fx-background-radius: 10; -fx-padding: 15;">
+                    <Label text="Agregar / Editar Libro"
+                           style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #e94560;"/>
+                    <Label text="ISBN:" style="-fx-text-fill: #e2e2e2;"/>
+                    <TextField fx:id="txtIsbn" promptText="ISBN"
+                               style="-fx-background-color: #0f3460; -fx-text-fill: white; -fx-background-radius: 6;"/>
+                    <Label text="Título:" style="-fx-text-fill: #e2e2e2;"/>
+                    <TextField fx:id="txtTitulo" promptText="Título"
+                               style="-fx-background-color: #0f3460; -fx-text-fill: white; -fx-background-radius: 6;"/>
+                    <Label text="Autor:" style="-fx-text-fill: #e2e2e2;"/>
+                    <TextField fx:id="txtAutor" promptText="Autor"
+                               style="-fx-background-color: #0f3460; -fx-text-fill: white; -fx-background-radius: 6;"/>
+                    <Label text="Género:" style="-fx-text-fill: #e2e2e2;"/>
+                    <TextField fx:id="txtGenero" promptText="Género"
+                               style="-fx-background-color: #0f3460; -fx-text-fill: white; -fx-background-radius: 6;"/>
+                    <Label text="Precio:" style="-fx-text-fill: #e2e2e2;"/>
+                    <TextField fx:id="txtPrecio" promptText="Precio"
+                               style="-fx-background-color: #0f3460; -fx-text-fill: white; -fx-background-radius: 6;"/>
+                    <Label text="Stock:" style="-fx-text-fill: #e2e2e2;"/>
+                    <TextField fx:id="txtStock" promptText="Stock"
+                               style="-fx-background-color: #0f3460; -fx-text-fill: white; -fx-background-radius: 6;"/>
+                    <Label text="Descripción:" style="-fx-text-fill: #e2e2e2;"/>
+                    <TextArea fx:id="txtDescripcion" promptText="Descripción del libro"
+                              prefHeight="60" wrapText="true"
+                              style="-fx-background-color: #0f3460; -fx-text-fill: white; -fx-background-radius: 6;"/>
+                    <Label text="Imagen (ruta local o URL):" style="-fx-text-fill: #e2e2e2;"/>
+                    <TextField fx:id="txtImagen" promptText="C:\imagen.jpg o https://..."
+                               style="-fx-background-color: #0f3460; -fx-text-fill: white; -fx-background-radius: 6;"/>
+                    <Button text="📂 Buscar imagen local" onAction="#handleBuscarImagen"
+                            style="-fx-background-color: #0f3460; -fx-text-fill: #a8a8b3; -fx-background-radius: 6;"/>
+                    <HBox spacing="8">
+                        <Button text="➕ Agregar" onAction="#handleAgregarLibro"
+                                style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 6;"/>
+                        <Button text="✏️ Actualizar" onAction="#handleActualizarLibro"
+                                style="-fx-background-color: #2980b9; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 6;"/>
+                        <Button text="🗑️ Eliminar" onAction="#handleEliminarLibro"
+                                style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 6;"/>
+                    </HBox>
+                    <Label fx:id="lblMsgCatalogo" style="-fx-font-size: 12px; -fx-text-fill: white;"/>
+                </VBox>
+            </HBox>
+        </Tab>
+
+        <!-- TAB USUARIOS -->
+        <Tab text="👥 Usuarios">
+            <HBox spacing="15" style="-fx-background-color: #1a1a2e;">
+                <padding><Insets top="15" right="15" bottom="15" left="15"/></padding>
+                <TableView fx:id="tablaUsuarios" HBox.hgrow="ALWAYS"
+                           style="-fx-background-color: #16213e;">
+                    <columns>
+                        <TableColumn fx:id="colUserNombre" text="Usuario"    prefWidth="200"/>
+                        <TableColumn fx:id="colUserRol"    text="Rol"        prefWidth="120"/>
+                    </columns>
+                </TableView>
+                <VBox spacing="8" prefWidth="280"
+                      style="-fx-background-color: #16213e; -fx-background-radius: 10; -fx-padding: 15;">
+                    <Label text="Registrar / Eliminar Usuario"
+                           style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #e94560;"/>
+                    <Label text="Nombre:" style="-fx-text-fill: #e2e2e2;"/>
+                    <TextField fx:id="txtUserNombre" promptText="Nombre de usuario"
+                               style="-fx-background-color: #0f3460; -fx-text-fill: white; -fx-background-radius: 6;"/>
+                    <Label text="Contraseña:" style="-fx-text-fill: #e2e2e2;"/>
+                    <PasswordField fx:id="txtUserPass" promptText="Contraseña"
+                                   style="-fx-background-color: #0f3460; -fx-text-fill: white; -fx-background-radius: 6;"/>
+                    <Label text="Rol:" style="-fx-text-fill: #e2e2e2;"/>
+                    <ComboBox fx:id="cmbRol" prefWidth="240"
+                              style="-fx-background-color: #0f3460;"/>
+                    <HBox spacing="8">
+                        <Button text="➕ Registrar" onAction="#handleRegistrarUsuario"
+                                style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 6;"/>
+                        <Button text="🗑️ Eliminar" onAction="#handleEliminarUsuario"
+                                style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 6;"/>
+                    </HBox>
+                    <Label fx:id="lblMsgUsuarios" style="-fx-font-size: 12px; -fx-text-fill: white;"/>
+                </VBox>
+            </HBox>
+        </Tab>
+
+        <!-- TAB HISTORIAL -->
+        <Tab text="📜 Historial de Ventas">
+            <VBox spacing="10" style="-fx-background-color: #1a1a2e;">
+                <padding><Insets top="15" right="15" bottom="15" left="15"/></padding>
+                <Label text="Todas las compras — Cola FIFO (primera compra = primera en mostrarse)"
+                       style="-fx-font-size: 11px; -fx-text-fill: #a8a8b3; -fx-font-style: italic;"/>
+                <TableView fx:id="tablaHistorial" VBox.vgrow="ALWAYS"
+                           style="-fx-background-color: #16213e;">
+                    <columns>
+                        <TableColumn fx:id="colFecha"         text="Fecha"   prefWidth="130"/>
+                        <TableColumn fx:id="colUsuarioCompra" text="Usuario" prefWidth="120"/>
+                        <TableColumn fx:id="colDetalle"       text="Detalle" prefWidth="450"/>
+                        <TableColumn fx:id="colTotal"         text="Total"   prefWidth="100"/>
+                    </columns>
+                </TableView>
+                <Button text="🔄 Refrescar" onAction="#handleRefrescarHistorial"
+                        style="-fx-background-color: #2980b9; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 6;"/>
+            </VBox>
+        </Tab>
+    </TabPane>
+</VBox>

@@ -1,0 +1,6 @@
+ISBN001|Cien anos de soledad|Gabriel Garcia Marquez|Novela|35000.0|10|Obra maestra del realismo magico latinoamericano.|https://covers.openlibrary.org/b/isbn/9780307474728-L.jpg
+ISBN002|El principito|Antoine de Saint-Exupery|Infantil|22000.0|15|Un clasico cuento sobre la amistad y el amor.|https://covers.openlibrary.org/b/isbn/9780156012195-L.jpg
+ISBN003|1984|George Orwell|Ciencia Ficcion|28000.0|8|Distopia sobre el totalitarismo y la vigilancia.|https://covers.openlibrary.org/b/isbn/9780451524935-L.jpg
+ISBN004|Don Quijote|Miguel de Cervantes|Clasico|45000.0|5|La primera novela moderna de la literatura occidental.|https://covers.openlibrary.org/b/isbn/9788420412146-L.jpg
+ISBN005|Harry Potter|J.K. Rowling|Fantasia|38000.0|12|La historia del nino mago mas famoso del mundo.|https://covers.openlibrary.org/b/isbn/9780439708180-L.jpg
+ISBN006|El alquimista|Paulo Coelho|Autoayuda|25000.0|20|Una historia sobre seguir tus suenos y el destino.|https://covers.openlibrary.org/b/isbn/9780062315007-L.jpg

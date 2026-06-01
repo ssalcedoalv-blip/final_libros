@@ -1,0 +1,4 @@
+admin,admin123,admin
+juan,juan123,usuario
+maria,maria456,usuario
+santiago,Santiagosalcedo123,admin
